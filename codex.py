@@ -1,5 +1,18 @@
-bash -lc python - <<'PY'
-import ast
-print('python ok')
-PY
-bash -lc rm -rf /tmp/aeris-phone && git clone -q https://github.com/web4hub/aeris-phone.git /tmp/aeris-phone && cd /tmp/aeris-phone && python -m compileall -q . && python -m pytest -q
+from __future__ import annotations
+
+import subprocess
+import sys
+
+
+def run(*args: str) -> None:
+    print("[AERIS]", " ".join(args))
+    subprocess.run(args, check=True)
+
+
+def main() -> None:
+    run(sys.executable, "-m", "compileall", "-q", ".")
+    run(sys.executable, "-m", "pytest", "-q")
+
+
+if __name__ == "__main__":
+    main()
