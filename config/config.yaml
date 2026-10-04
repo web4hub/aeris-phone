@@ -1,0 +1,28 @@
+camera:
+  mode: auto
+  width: 640
+  height: 480
+  fps: 30
+  depth_scale: 0.001
+  intrinsics: [640.0, 640.0, 320.0, 240.0]
+
+rendering:
+  projector_resolution: [1280, 720]
+  max_points: 12000
+  point_size: 2
+  show_window: true
+
+interaction:
+  depth_threshold_mm: 900
+  min_hand_pixels: 300
+  effect_radius: 14
+
+ai:
+  provider: lmlm
+  endpoint: ""
+  model: "lmlm-aeris"
+  timeout_seconds: 5
+
+system:
+  battery_percent: 100
+  thermal_limit_c: 80
